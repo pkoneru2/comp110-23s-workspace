@@ -22,21 +22,21 @@ while (word_idx < word_length):
         yellow: bool = False
         alt_idx: int = 0
         #Checking each character in string user_guess to see if it matches any character in any index of secret_guess
-        while (yellow != True and alt_idx < word_length):
+        while (yellow is not True and alt_idx < word_length):
             if (secret_word[alt_idx] == user_guess[word_idx]):
                 yellow = True
             else:
                 #Update value of alternate index to check next character, checks every character in secret_word before updating value of word_idx
                 alt_idx = alt_idx + 1
-        if (yellow == True):
+        if (yellow is True):
             emoji_guess = emoji_guess + YELLOW_BOX
         else:
             emoji_guess = emoji_guess + WHITE_BOX
     #Update value of index to check next character
-    word_idx = word_idx+1
+    word_idx = word_idx + 1
 print(emoji_guess)
 if (user_guess != secret_word):
     print("Not quite. Play again soon!")
 else:
     print("Woo! You got it!")
-
+    
