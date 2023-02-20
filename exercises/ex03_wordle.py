@@ -15,9 +15,11 @@ def main() -> None:
         print(emojified (user_input, secret))
         if(user_input == secret):
             print(f"You won in {turn}/6 turns!")
-            exit()
+            turn = 7
         turn = turn + 1
-    print ("X/6 - Sorry, try again tomorrow!")
+    if(turn > 6 and user_input != secret):
+        print ("X/6 - Sorry, try again tomorrow")
+
 
 def contains_char(word: str, letter: str) -> bool:
     """Searches string for character"""
