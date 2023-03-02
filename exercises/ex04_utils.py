@@ -1,4 +1,4 @@
-"""List Utils."""
+"""List Utils"""
 
 __author__ = "730570597"
 
