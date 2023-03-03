@@ -12,10 +12,13 @@ def only_evens(input: list[int]) -> list[int]:
     return list1
 
 
-def concat(list1: list[int], list2: list[int]) -> list[int]:
+def concat(input1: list[int], input2: list[int]) -> list[int]:
     """Concatenates two lists by adding second list to end of first"""
-    for idx in range(0, len(list2)):
-        list1.append(list2[idx])
+    list1 = list()
+    for idx in range(0, len(input1)):
+        list1.append(input1[idx])
+    for idx in range(0, len(input2)):
+        list1.append(input2[idx])
     return list1
 
 
@@ -31,3 +34,5 @@ def sub(input: list[int], start: int, end: int) -> list[int]:
     for idx in range(start, end):
         list1.append(input[idx])
     return list1
+
+print(concat([1, 2, 3, 4], [1, 2 ,3, 4]))
