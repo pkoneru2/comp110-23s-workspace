@@ -1,4 +1,4 @@
-"""Testing functions from utils.py"""
+"""Testing functions from utils.py."""
 
 __author__ = "730570597"
 
