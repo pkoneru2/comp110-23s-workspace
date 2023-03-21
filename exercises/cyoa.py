@@ -102,7 +102,7 @@ def endor(points: int) -> int:
     player_sum: int = 0
     enemy_sum: int = 0
     while (player_sum <= 21 and enemy_sum <= 21):
-        dice_roll: int = input(f"{player}, would you like to roll the die? Select Yes or No. {DICE} ")
+        dice_roll: str = input(f"{player}, would you like to roll the die? Select Yes or No. {DICE} ")
         if (dice_roll != "Yes"):
             if (dice_roll != "No"):
                 print("Please enter a valid input.")
