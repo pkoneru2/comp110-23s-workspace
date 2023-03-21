@@ -130,5 +130,6 @@ def endor(points: int) -> int:
         points += 1
         return points
 
+
 if __name__ == "__main__":
     main()
