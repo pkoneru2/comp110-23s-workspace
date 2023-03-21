@@ -1,4 +1,4 @@
-"""Choose your own adventure: Star Wars Edition"""
+"""Choose your own adventure: Star Wars Edition."""
 
 __author__ = "730570597"
 
@@ -16,6 +16,7 @@ DICE: str = "\U0001F3B2"
 BOMB: str = "\U0001F4A3"
 SHIELD: str = "\U0001F6E1"
 
+
 def main() -> None:
     """Main Function containing gameloop. User has 3 options: Game 1, Game 2, or Exit. Points displayed at the end of each round. If player exits game with 5 or more points they win. If not, they lose."""
     global points
@@ -24,38 +25,40 @@ def main() -> None:
     player = ""
     input_check: bool = True
     greet()
-    while (input_check == True):
+    while (input_check is True):
         game_choice: str = input(f"Select an option: 1-Hoth {SNOWFLAKE}, 2-Endor {TREE}, or 3-Exit the game? {EXIT} ")
         if (game_choice == "1"):
             hoth()
-            print (f"Your Points: {points}")
+            print(f"Your Points: {points}")
         elif (game_choice == "2"):
             points = endor(points)
-            print (f"Your Points: {points}")
+            print(f"Your Points: {points}")
         elif (game_choice == "3"):
             input_check = False
         else:
             print("Please provide a valid input.")
-    print (f"Your Points: {points}")
+    print(f"Your Points: {points}")
     if (points >= 5):
         print(f"Congratulations {player}! You've defeated the empire. {TROPHY}")
     elif (points < 5):
         print(f"{player}, due to your incompetence the empire has succeeded and our forces have been eradicated. {SAD}")
 
+
 def greet() -> None:
     """Tells user the rules of the games and gives them their options."""
-    print ("Welcome to Star Wars: Battle for the Republic!\nIn this game you can take to the skies of Hoth and battle empire ships or escape stormtroopers on Endor.")
-    print (f"On Hoth, you will have 3 options for engaging the enemy. Choose wisely. {GUN}")
-    print (f"On Endor, you will be tasked with increasing or decreasing your speed by rolling a die. Too fast and you crash. Too slow and you're caught. {DICE}")
+    print("Welcome to Star Wars: Battle for the Republic!\nIn this game you can take to the skies of Hoth and battle empire ships or escape stormtroopers on Endor.")
+    print(f"On Hoth, you will have 3 options for engaging the enemy. Choose wisely. {GUN}")
+    print(f"On Endor, you will be tasked with increasing or decreasing your speed by rolling a die. Too fast and you crash. Too slow and you're caught. {DICE}")
     global player
     player = input("What is your name? ")
+
 
 def hoth() -> None:
     """Defending Hoth airspace from Empire attack. Like Rock, Paper, Scissors. Shoot beats bomb, bomb beats shield, and shield beats shoot."""
     global points
     global player
     input_check: bool = True
-    while (input_check == True):
+    while (input_check is True):
         enemy: int = randint(0, 30)
         enemy_choice: str = ""
         if (enemy <= 10):
@@ -70,40 +73,42 @@ def hoth() -> None:
             input_check = False
         elif (player_choice == "shoot"):
             if (enemy_choice == "bomb"):
-                print ("You shot the enemy down!")
+                print("You shot the enemy down!")
                 points += 1
             elif (enemy_choice == "shield"):
-                print (f"The enemy repelled your attack back at you! Return to base {player}.")
+                print(f"The enemy repelled your attack back at you! Return to base {player}.")
             input_check = False
         elif (player_choice == "bomb"):
             if (enemy_choice == "shield"):
-                print ("You destroyed the enemy's shield!")
+                print("You destroyed the enemy's shield!")
                 points += 1
             elif (enemy_choice == "shoot"):
-                print (f"The enemy shot you down! Return to base {player}.")
+                print(f"The enemy shot you down! Return to base {player}.")
             input_check = False
         elif (player_choice == "shield"):
             if (enemy_choice == "shoot"):
-                print ("You repelled the enemy's attack back at them!")
+                print("You repelled the enemy's attack back at them!")
                 points += 1
             elif (enemy_choice == "bomb"):
-                print (f"The enemy destroyed your shield! Return to base {player}.")
+                print(f"The enemy destroyed your shield! Return to base {player}.")
             input_check = False
         else:
             print("Please enter a valid input")
 
-def endor (points: int) -> int:
+
+def endor(points: int) -> int:
     """Escaping stormtroopers on the surface of Endor. Similar to blackjack. If player or computer exceeds 21, they automatically lose. If player's final number is greater than computer's, player wins."""
+    global player
     player_sum: int = 0
     enemy_sum: int = 0
     while (player_sum <= 21 and enemy_sum <= 21):
         dice_roll: int = input(f"{player}, would you like to roll the die? Select Yes or No. {DICE} ")
         if (dice_roll != "Yes"):
             if (dice_roll != "No"):
-                print ("Please enter a valid input.")
+                print("Please enter a valid input.")
         if (dice_roll == "Yes"):
-            player_sum += randint(1,6)
-            enemy_sum += randint(1,6)
+            player_sum += randint(1, 6)
+            enemy_sum += randint(1, 6)
             print(f"Your Speed: {player_sum}")
         elif (dice_roll == "No"):
             if (player_sum > enemy_sum):
